@@ -31,7 +31,7 @@ def evaluate_hand_strength(hand):
         score += (15 ** (4 - i)) * count * rank  # weighting most significant cards more
     return score
 
-def simulate_games(player_cards, num_simulations=10000):
+def simulate_games(player_cards, num_simulations=1000000):
     suits = ['H', 'D', 'C', 'S']
     ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
     full_deck = [rank + suit for rank in ranks for suit in suits]
