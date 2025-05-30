@@ -1,4 +1,5 @@
 import random
+import matplotlib.pyplot as plt
 
 def shuffle_deck(deck):
     random.shuffle(deck)
@@ -73,3 +74,18 @@ win_prob, tie_prob, loss_prob = simulate_games(player_cards)
 print(f"Win Probability:  {win_prob:.4f}")
 print(f"Tie Probability:  {tie_prob:.4f}")
 print(f"Loss Probability: {loss_prob:.4f}")
+
+# Visualize hand strength categories with their respective win probabilities
+labels = ['Premium', 'Strong', 'Medium', 'Weak', 'Trash']
+win_probs = [0.85, 0.70, 0.55, 0.40, 0.25]
+
+plt.figure(figsize=(8, 6))
+bars = plt.bar(labels, win_probs, edgecolor='black')
+plt.ylim(0, 1)
+plt.ylabel('Estimated Win Probability')
+plt.title('Win Probabilities by Poker Hand Strength Tier')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.tight_layout()
+
+plt.savefig("poker_hand_strength_distribution.png")
+plt.show()
